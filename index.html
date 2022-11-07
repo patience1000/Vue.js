@@ -31,10 +31,10 @@
 <body>
     <div id="app" v-cloak>
         {{ message }}
-        <input v-model="message" />
+        <input @keyup.enter="greeting(message + '!!!!')" v-model="message" />
 
         <hr />
-        <button @click="isVisible = !isVisible">Toggle Box</button>
+        <button @click="toggleBox">Toggle Box</button>
         <div v-if="isVisible" class="box"></div>
         
     </div>
@@ -45,6 +45,14 @@
             return {
                 message: 'Hello Vue!',
                 isVisible: false       
+            }
+        },
+        methods:{
+            toggleBox() {
+                this.isVisible = !this.isVisible
+            },
+            greeting(message) {
+                console.log(message)
             }
         }
     })
