@@ -26,12 +26,16 @@
         [v-cloak] {
             display: none;
         }
+
+        input{
+            margin:10px;
+            display:block;
+        }
     </style>
 </head>
 <body>
     <div id="app" v-cloak>
-        {{ message }}
-        <input @keyup.enter="greeting(message + '!!!!')" v-model="message" />
+       <login-form />
 
         <hr />
         <button @click="toggleBox">Toggle Box</button>
@@ -40,23 +44,38 @@
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-        let app = Vue.createApp({
-        data: function() {
-            return {
-                message: 'Hello Vue!',
-                isVisible: false       
-            }
-        },
-        methods:{
-            toggleBox() {
-                this.isVisible = !this.isVisible
+            let app = Vue.createApp({
+            data: function() {
+                return {
+                    message: 'Hello Vue!',
+                    isVisible: false       
+                }
             },
-            greeting(message) {
-                console.log(message)
+            methods:{
+                toggleBox() {
+                    this.isVisible = !this.isVisible
+                },
+                greeting(message) {
+                    console.log(message)
+                }
             }
-        }
-    })
-     app.mount('#app')
+        })
+        app.component('login-form',{
+            template: `
+                <div>
+                    <h1>{{ title }}</h1>
+                    <input type="email" />
+                    <input type ="password" />
+
+                </div>
+            `,
+            data(){
+                return{
+                    title: 'Login Form'
+                }
+            }
+        })
+        app.mount('#app')
     </script>
 </body>
 </html>
