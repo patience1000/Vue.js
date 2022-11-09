@@ -7,7 +7,7 @@
     <title>Vue 3 Basics</title>
     <style>
         .box{
-            background-color: rgb(11, 68, 223);
+            background-color: purple;
             height: 200px;
             width: 200px;
         }
@@ -33,69 +33,70 @@
         }
     </style>
 </head>
-<body>
-    <div id="app" v-cloak>
-       <login-form />
+    <body>
+        <div id="app" v-cloak>
+        <login-form />
 
-        <hr />
-        <button @click="toggleBox">Toggle Box</button>
-        <div v-if="isVisible" class="box"></div>
-        
-    </div>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-            let app = Vue.createApp({
-            data: function() {
-                return {
-                    message: 'Hello Vue!',
-                    isVisible: false       
-                }
-            },
-            methods:{
-                toggleBox() {
-                    this.isVisible = !this.isVisible
+            <hr />
+            <button @click="toggleBox">Toggle Box</button>
+            <div v-if="isVisible" class="box"></div>
+            
+        </div>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script>
+                let app = Vue.createApp({
+                data: function() {
+                    return {
+                        message: 'Hello Vue!',
+                        isVisible: false       
+                    }
                 },
-                greeting(message) {
-                    console.log(message)
+                methods:{
+                    toggleBox() {
+                        this.isVisible = !this.isVisible
+                    },
+                    greeting(message) {
+                        console.log(message)
+                    }
                 }
-            }
-        })
-        app.component('login-form',{
-            template: `
-                <form @submit.prevent="handleSubmit">
+            })
+            app.component('login-form',{
+                template: `
+                    <form @submit.prevent="handleSubmit">
+                <div>
                     <h1>{{ title }}</h1>
-                    <custom-input type="email" :label="passwordLabel"  />
-                    <custom-input type ="password" :label="emailLabel" />
-                    <button>Log In</button>
-                </form>
-            `,
-            components: ['custom-input'],
-            data(){
-                return{
-                    title: 'Login Form',
-                    email: '',
-                    password: '',
-                    emailLabel: 'Email',
-                    passwordLabel: 'Password'
+                    <custom-input type="email" />
+                    <custom-input type="password" v-bind:label="emailLabel" />
+                    <button>Log in</button>
+                </div>
+                `,
+                components: ['custom-input'],
+                data(){
+                    return{
+                        title: 'Login Form',
+                        email: '',
+                        password: '',
+                        emailLabel: 'Email',
+                        passwordLabel: 'Password'
+                    }
+                },
+                methods:{
+                    handleSubmit(){
+                        console.log(this.email, this.password)
+                    }
                 }
-            },
-            methods: {
-                handleSubmit(){
-                    console.log(email, password)
-                }
-            }
-        })
-        app.component('custom-input',{
-            template: `
-                <label>
-                    {{ label }}
-                    <input type="text"
-                </label>
-            `,
-            props: ['label']
-        })
-        
-        app.mount('#app')
-    </script>
-</body>
+            })
+            app.component('custom-input', {
+                template:`
+                    <label>
+                        {{ label }}
+                        <input type="text" >
+                    </label>
+                `,
+                props: ['label']
+            })
+            
+            app.mount('#app')
+        </script>
+    </body>
 </html>
