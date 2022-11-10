@@ -65,7 +65,7 @@
                     <form @submit.prevent="handleSubmit">
                 <div>
                     <h1>{{ title }}</h1>
-                    <p v-for="str in inputs">{{ str }}</p>
+                    <p v-for="(str, i) in inputs" :key="i">{{ i }}</p>
                     <custom-input v-model="email" :label="emailLabel"/>
                     <custom-input v-model="password" :label="passwordLabel" />
                     <button>Log in</button>
