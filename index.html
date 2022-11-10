@@ -65,8 +65,8 @@
                     <form @submit.prevent="handleSubmit">
                 <div>
                     <h1>{{ title }}</h1>
-                    <custom-input type="email" />
-                    <custom-input type="password" v-bind:label="emailLabel" />
+                    <custom-input  :label="PasswordLabel"/>
+                    <custom-input  :label="Enter EmailLabel" />
                     <button>Log in</button>
                 </div>
                 `,
@@ -90,10 +90,25 @@
                 template:`
                     <label>
                         {{ label }}
-                        <input type="text" >
+                        <input type="text" v-model="inputValue" >
                     </label>
                 `,
-                props: ['label']
+                props: ['label'],
+                computed: {
+                    inputValue: {
+                        get() {
+
+                        },
+                        set() {
+
+                        }
+                    }
+                }
+                // data() {
+                //     return{
+                //         inputValue: ''
+                //     }
+                // }
             })
             
             app.mount('#app')
