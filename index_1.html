@@ -12,51 +12,33 @@
             width: 200px;
         }
 
-        .box1{
-            background-color: rgb(0, 119, 128);
-            height: 200px;
-            width: 200px;
-        }
-
-        .box2{
-            background-color: rgb(128, 0, 75);
-            height: 200px;
-            width: 200px;
-        }
-        [v-cloak] {
-            display: none;
-        }
-
-        input{
-            margin:10px;
-            display:block;
-        }
     </style>
 </head>
     <body>
-        <div id="app" v-cloak>
-        <login-form />
-
-            <hr />
+        <div id="app">
             <button @click="toggleBox">Toggle Box</button>
-            <div v-if="isVisible" class="box"></div>
-            
+            <test-box  v-if="isVisible" />
         </div>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script>
                 let app = Vue.createApp({
                 data: function() {
                     return {
-                        message: 'Hello Vue!',
                         isVisible: false       
                     }
                 },
                 methods:{
                     toggleBox() {
                         this.isVisible = !this.isVisible
-                    },
-                    greeting(message) {
-                        console.log(message)
                     }
-                }
+                },
             })
+            app.component('test-box', {
+                template: `
+                    <div class="box"></div>
+                `    
+            })
+            app.mount('#app')
+        </script>
+    </body>
+</html>       
