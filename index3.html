@@ -2,16 +2,43 @@
 <html lang="en">
 <head>
     <title>Document</title>
+    <style>
+        .square{
+            height: 300px;
+            width: 300px;
+            background-color: rgb(255, 0, 200);
+        }
+        .square1{
+            height: 300px;
+            width: 300px;
+            background-color: rgb(250, 124, 223);
+        }
+        .square2{
+            height: 300px;
+            width: 300px;
+            background-color: rgb(77, 8, 62);
+        }
+        button{
+            background-color: rgb(42, 95, 165);
+        }
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <div id="app">
+    <div id="app" v-cloak >
         <button @click="count++">Click Me To Add</button>
         <button @click="count--">Click Me To Decrease</button>
         Count is:{{count}}
-        <input v-model="count">
+        <input @keyup.enter="number('The current number is:' + count)" v-model="count" />
+     <hr>
+        <button @click="toggleBox">Toogle Box</button>
+        <div v-if="isVisible" class="square"></div>
+        <!-- <test-box v-if="isVisible"/> -->
     </div>
   
     <script>
@@ -19,9 +46,18 @@
         data() {
             return {
                 count: 0,
+                isVisible:true
             }
-        }
-       })
+        },
+        methods: {
+            toggleBox(){
+                this.isVisible = !this.isVisible
+            },
+            number(count){
+                console.log(count)
+            }
+        }    
+        })
        app.mount('#app')
     </script>
 </body>
