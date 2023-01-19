@@ -31,10 +31,11 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <div id="app" v-cloak >
-        <button @click="count++">Click Me To Add</button>
-        <button @click="count--">Click Me To Decrease</button>
+        <button @click="increment">Click Me To Add</button>
+        <button @click="decrement">Click Me To Decrease</button>
         Count is:{{count}}
         <input @keyup.enter="number('The current number is:' + count)" v-model="count" />
+        <p>The present number is greater than 3</p>
      <hr>
         <button @click="toggleBox">Toogle Box</button>
         <div v-if="isVisible" class="square"></div>
@@ -57,10 +58,26 @@
             toggleBox(){
                 this.isVisible = !this.isVisible
             },
+            increment(){
+                this.count++
+            },
+            decrement(){
+                count--
+            },
             number(count){
                 console.log(count)
             }
-        }    
+        },    
+        computed:{
+            showNum(){
+                return this.count > 3 ? 'Yes':'No'
+            }
+            
+        },
+        mounted(){
+            console.log(this.count)
+            this.count = 2
+        }
         })
        app.mount('#app')
     </script>
