@@ -35,10 +35,11 @@
         <button @click="decrement">Click Me To Decrease</button>
         Count is:{{count}}
         <input @keyup.enter="number('The current number is:' + count)" v-model="count" />
-        <p>The present number is greater than 3</p>
+        <p>The present number is greater than 3 because it's {{showNum}}</p>
      <hr>
         <button @click="toggleBox">Toogle Box</button>
         <div v-if="isVisible" class="square"></div>
+        <div v-else="square2"> 😢</div>
         <p>Using text interpolation: <span style="color: red">{{ msg }}</span></p>
         <p>Using v-html directive: <span v-html="msg"></span></p>
 
