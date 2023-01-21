@@ -17,8 +17,22 @@
         const App = createApp({
             data(){
                 return{
-                    count: 0
+                    count: 0,
+                    question: '',
+                    answer: 'Questions usually contain a question mark. ;-)'
                 }     
+            },
+            watch: {
+                question(newQuestion,oldQuestion){
+                    if(newQuestion.includes('?')){
+                        this.getAnswer()
+                    }
+                }
+            },
+            methods: {
+                async getAnswer(){
+                    this.answer = 'Thinking....'
+                }
             }
         })
 
