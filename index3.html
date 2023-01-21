@@ -42,7 +42,12 @@
         <div v-else="square2"> 😢</div>
         <p>Using text interpolation: <span style="color: red">{{ msg }}</span></p>
         <p>Using v-html directive: <span v-html="msg"></span></p>
-        <li v-for="(value, key) in myObject">{{value, key}}</li>
+        <li v-for="(index, value, key) in myObject">{{index}}: {{key}}: {{value}}</li>
+        <li v-for="n in 10">{{ n }}</li>
+        <p>{{msg}}</p>
+        <textarea v-model="msg" placeholder="add text"></textarea>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{checked}}</label>
     </div>
   
     <script>
@@ -52,11 +57,12 @@
                 count: 0,
                 isVisible:true,
                 msg: 'good',
+                checked: false,
 
                 myObject:{
-                    title: 'Love',
-                    authour: 'Patience',
-                    published: '2022'
+                    Title: 'Love',
+                    Authour: 'Patience',
+                    Published: '2022'
                 }
             }
         },
@@ -81,7 +87,7 @@
             
         },
         mounted(){
-            console.log(this.count)
+            console.log(`Hello ${this.count}`)
             this.count = 2
         }
         })
