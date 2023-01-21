@@ -43,11 +43,35 @@
         <p>Using text interpolation: <span style="color: red">{{ msg }}</span></p>
         <p>Using v-html directive: <span v-html="msg"></span></p>
         <li v-for="(index, value, key) in myObject">{{index}}: {{key}}: {{value}}</li>
-        <li v-for="n in 10">{{ n }}</li>
+        <li v-for="n in 2">{{ n }}</li>
         <p>{{msg}}</p>
         <textarea v-model="msg" placeholder="add text"></textarea>
         <input type="checkbox" id="checkbox" v-model="checked">
         <label for="checkbox">{{checked}}</label>
+        <div>{{checkednames}}</div>
+        <input type="checkbox" id="Jack" value="Jack" v-model="checkednames">
+        <label for="Jack">Jack</label>
+        <input type="checkbox" id="Pat" value="Pat" v-model="checkednames">
+        <label for="Pat">Pat</label>
+        <input type="checkbox" id="Paul" value="Paul" v-model="checkednames">
+        <label for="Paul">Paul</label>
+
+        <!-- radio button -->
+        <div>Picked: {{ picked }}</div>
+
+        <input type="radio" id="one" value="One" v-model="picked" />
+        <label for="one">One</label>
+
+        <input type="radio" id="two" value="Two" v-model="picked" />
+        <label for="two">Two</label>
+
+        <div>Selected: {{ selected }}</div>
+        <select v-model="selected" multiple>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        </select>
+
     </div>
   
     <script>
@@ -55,10 +79,16 @@
         data() {
             return {
                 count: 0,
+
                 isVisible:true,
+
                 msg: 'good',
+                selected: '',
                 checked: false,
 
+                checkednames: [],
+
+                picked: "",
                 myObject:{
                     Title: 'Love',
                     Authour: 'Patience',
