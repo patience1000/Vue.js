@@ -9,6 +9,12 @@
 <body>
     <div id="app">
         <button @click="count++">{{ count }}</button>
+        <p>
+            Ask a yes/no question:
+            <input v-model="question" />
+        </p>
+        <p>{{ answer }}</p>
+          
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -24,7 +30,7 @@
             },
             watch: {
                 question(newQuestion,oldQuestion){
-                    if(newQuestion.includes('?')){
+                    if(newQuestion.indexOf('?') > -1){
                         this.getAnswer()
                     }
                 }
@@ -32,17 +38,17 @@
             methods: {
                 async getAnswer(){
                     this.answer = 'Thinking....'
+
+                    try {
+                    const res = await fetch('https://yesno.wtf/api')
+                    this.answer = (await res.json()).answer
+                } catch (error) {
+                    this.answer = 'Error! Could not reach the API. ' + error
+                }
                 }
             }
         })
 
-        template:`
-            <div :id="dynamicId"></div>
-        `
-        app.config.errorHandler = (err) => {
-            /* handle error */
-        }
-    
         app.mount('#app')
     </script>
 </body>
