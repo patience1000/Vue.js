@@ -22,36 +22,18 @@
         </div>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script>
-                let app = Vue.createApp({
-                data: function() {
-                    return {
-                        isVisible: false       
-                    }
-                },
-                methods:{
-                    toggleBox() {
-                        this.isVisible = !this.isVisible
-                    }
-                },
-                updated(){
-                    console.log('updated')
-                }
-            })
-            app.component('test-box', {
-                template: `
-                    <div class="box"></div>
-                `,
-                created() {
-                    console.log('created')
-                },
-                mounted(){
-                    console.log('mounted')
-                },
-                unmounted(){
-                    console.log('unmounted')
-                }    
-            })
-            app.mount('#app')
-        </script>
+            import ButtonCounter from './ButtonCounter.vue'
+            export default {
+            components: {
+                ButtonCounter
+            }
+            }
+            </script>
+
+            <template>
+            <h1>Here is a child component!</h1>
+            <ButtonCounter />
+            </template>
+
     </body>
 </html>       
