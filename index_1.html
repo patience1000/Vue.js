@@ -12,18 +12,79 @@
             width: 200px;
         }
 
+        #User{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.8);
+            background-image: url('images/pexels-vecislavas-popa-1571470.jpg');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode:saturation;
+            }
+            .profile{
+            text-align: center;
+            }
+            .profile h2{
+            font-size: 2em;
+            text-align: center;
+            text-indent: 20px;
+            font-weight: 300;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            padding-bottom: 22px;
+            }
+            .profile p{
+            color: #fff;
+            font-size: 1.3em;
+            font-weight: 300;
+            text-indent:10px;
+            padding-bottom: 30px;
+            }
+            #reg{
+            color: #BC983C;
+            font-size: 1.1em;
+            font-weight: 300;
+            text-indent:10px;
+            padding-bottom: 30px;
+            }
+            .profile input{
+            padding: 1.5% 30% 2% 2%;
+            outline: none;
+            color: #fff;
+            border: 1px solid #e9ba42;
+            background-color: transparent;
+            border-radius: 8px;
+            text-align: left;
+            }
+            .Con{
+            padding: 2% 145px;
+            color: #fff;
+            background-color: #e9ba42;
+            box-shadow: 2px #f8f9fa;
+            margin: 30px 0px 20px;
+            }
+            .facebook{
+            margin-top: 5%;
+            padding: 2% 115px;
+            color: #fff;
+            background-color: blue;
+            }
+
     </style>
 
 </head>
     <body>
-        <login></login>
         <div id="app">
+            <login-form></login-form>
             <button @click="toggleBox">Toggle Box</button>
             <test-box  v-if="isVisible" />
         </div>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script>
-            let app = Vue.created({
+            let app = Vue.createApp({
                 data: function() {
                     return {
                         greeting: 'Hello Vue3!',
@@ -39,22 +100,29 @@
 
             app.component('login-form',{
                 template:`
+                <h1>{{title}}</h1>
                 <div id="User">
                     <div class="profile">
-                    <h2>What's your email address?</h2>
-                    <p>Type your email to log in or create a furnito account.</p>
-                
-                    <input type="email" name="Email" placeholder="Email"  id="email">
-                    <br>
-                    <button class="Con" type="">Continue</button>
-                
-                    <p id="reg">Log in or register with phone number</p>
-                
-                    <button class="facebook" type="submit">Log in with Facebook</button>
-                </div>
-            
-                `
+                        <h2>What's your email address?</h2>
+                        <p>Type your email to log in or create a furnito account.</p>
+                    
+                        <input type="email" name="Email" placeholder="Email"  id="email">
+                        <br>
+                        <button class="Con" type="">Continue</button>
+                    
+                        <p id="reg">Log in or register with phone number</p>
+                    
+                        <button class="facebook" type="submit">Log in with Facebook</button>
+                    </div>
+                </div>           
+                `,
+                data() {
+                    return{
+                        title: 'Login Form'
+                    }
+                }
             })
+            app.mount('#app')
         </script>
     </body>
 </html>       
