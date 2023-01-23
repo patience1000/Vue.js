@@ -16,24 +16,45 @@
 
 </head>
     <body>
+        <login></login>
         <div id="app">
             <button @click="toggleBox">Toggle Box</button>
             <test-box  v-if="isVisible" />
         </div>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script>
-            import ButtonCounter from './ButtonCounter.vue'
-            export default {
-            components: {
-                ButtonCounter
-            }
-            }
-            </script>
+            let app = Vue.created({
+                data: function() {
+                    return {
+                        greeting: 'Hello Vue3!',
+                        isVisible: false
+                    }
+                },
+                methods: {
+                    toggleBox(){
+                        this.isVisible = !this.isvisible
+                    },
+                }
+            })
 
-            <template>
-            <h1>Here is a child component!</h1>
-            <ButtonCounter />
-            </template>
-
+            app.component('login-form',{
+                template:`
+                <div id="User">
+                    <div class="profile">
+                    <h2>What's your email address?</h2>
+                    <p>Type your email to log in or create a furnito account.</p>
+                
+                    <input type="email" name="Email" placeholder="Email"  id="email">
+                    <br>
+                    <button class="Con" type="">Continue</button>
+                
+                    <p id="reg">Log in or register with phone number</p>
+                
+                    <button class="facebook" type="submit">Log in with Facebook</button>
+                </div>
+            
+                `
+            })
+        </script>
     </body>
 </html>       
