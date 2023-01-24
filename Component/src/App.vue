@@ -1,4 +1,4 @@
-<script setup>
+<script>
 import props from './components/props.vue'
 
 export default{
