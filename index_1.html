@@ -78,7 +78,7 @@
 </head>
     <body>
         <div id="app">
-            <login-form title="Testing Props"/>
+            
             <button @click="toggleBox">Toggle Box</button>
             <div v-if="isVisible" class="box"></div>
         </div>
@@ -100,6 +100,7 @@
 
             app.component('login-form',{
                 template:`
+                <login-form v-for="post in posts" :key="post.id" :title="post.title"/>
                 <h1>{{title}}</h1>
                 <div id="User">
                     <div class="profile">
@@ -118,7 +119,11 @@
                 `,
                 data() {
                     return{
-                        // title: 'Login Form'
+                        posts: [
+                        { id: 1, title: 'My journey with Vue' },
+                        { id: 2, title: 'Blogging with Vue' },
+                        {id: 3, title: 'Why Vue is so fun' }
+                        ]
                     }
                 },
                 props: ['title'],
