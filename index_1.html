@@ -78,7 +78,7 @@
 </head>
     <body>
         <div id="app">
-            <login-form></login-form>
+            <login-form title="Testing Props"/>
             <button @click="toggleBox">Toggle Box</button>
             <div v-if="isVisible" class="box"></div>
         </div>
@@ -118,9 +118,10 @@
                 `,
                 data() {
                     return{
-                        title: 'Login Form'
+                        // title: 'Login Form'
                     }
                 },
+                props: ['title'],
                 methods:{
                     submitHandle(){
 
