@@ -19,6 +19,6 @@ export default{
 </script>
 
 <template>
-  <props v-for="post in posts :key="post.id" :title="post.title"></props>
+  <props v-for="post in posts" :key="post.id" :title="post.title"></props>
 </template>
 
