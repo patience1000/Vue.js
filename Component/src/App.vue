@@ -1,22 +1,23 @@
 <script>
-import props from './components/props.vue'
-import AlertBox from './components/AlertBox.vue'
-export default{
-  components: {
-    AlertBox
-  }}
+  import props from './components/props.vue'
+  import AlertBox from './components/AlertBox.vue'
+  export default{
+    components: {
+      props,
+      AlertBox
+    }}
 
-//   data(){
-//     return{
-//       posts:[
-//             {id: '1', title: 'How I started'},
-//             {id:'2', title:'Vue in View'},
-//             {id:'3', title:'How its going'}
-//       ],
-//       postFontSize: 1,
-//     }
-//   }
-// }
+  //   data(){
+  //     return{
+  //       posts:[
+  //             {id: '1', title: 'How I started'},
+  //             {id:'2', title:'Vue in View'},
+  //             {id:'3', title:'How its going'}
+  //       ],
+  //       postFontSize: 1,
+  //     }
+  //   }
+  // }
 </script>
   <template>
     <AlertBox>
