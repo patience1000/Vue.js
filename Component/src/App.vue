@@ -25,13 +25,13 @@
     </AlertBox>
 
 
-    <!-- <div :style="{ fontSize: postFontSize + 'em'}">
+    <div :style="{ fontSize: postFontSize + 'em'}">
     <props 
     v-for="post in posts" 
     :key="post.id" 
     :title="post.title"
     @enlarge-text="postFontSize += 0.1">
    </props>
-   </div> -->
+   </div>
   </template>
 
