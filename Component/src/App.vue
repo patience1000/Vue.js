@@ -1,12 +1,19 @@
 <script>
   import props from './components/props.vue'
   import AlertBox from './components/AlertBox.vue'
+  import vmodel from './components/vmodel.vue'
   export default{
     components: {
-      props,
-      AlertBox
-    }}
-
+      vmodel
+      // props,
+      // AlertBox
+    },
+    data(){
+      return{
+        message: 'hello'
+      }
+    }
+  }
   //   data(){
   //     return{
   //       posts:[
@@ -19,19 +26,20 @@
   //   }
   // }
 </script>
+ 
   <template>
-    <AlertBox>
+ <vmodel v-model="message"/> {{ message }}
+
+    <!-- <AlertBox>
       Something bad happened
-    </AlertBox>
-
-
-    <div :style="{ fontSize: postFontSize + 'em'}">
+    </AlertBox> -->
+    <!-- <div :style="{ fontSize: postFontSize + 'em'}">
     <props 
     v-for="post in posts" 
     :key="post.id" 
     :title="post.title"
     @enlarge-text="postFontSize += 0.1">
-   </props>
-   </div>
+   </props> -->
+   <!-- </div> -->
   </template>
 
