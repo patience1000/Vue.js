@@ -2,6 +2,7 @@
   import props from './components/props.vue'
   import AlertBox from './components/AlertBox.vue'
   import vmodel from './components/vmodel.vue'
+  import MouseTracker from './components/MouseTracker.vue'
   export default{
     components: {
       // vmodel
@@ -42,7 +43,7 @@
   </template>
 
   </AlertBox>
-  <!-- <AlertBox> box1</AlertBox> -->
+  <AlertBox v-slot="{ x, y }"> Mouse is at: {{ x }}, {{ y }}</AlertBox>
   <!-- <vmodel v-model="message"/> {{ message }} -->
 
     <!-- <AlertBox>
@@ -56,5 +57,7 @@
     @enlarge-text="postFontSize += 0.1">
    </props> -->
    <!-- </div> -->
+   <MouseTracker v-slot="{ x, y }">
+  	Mouse is at: {{ x }}, {{ y }}</MouseTracker>
   </template>
 
