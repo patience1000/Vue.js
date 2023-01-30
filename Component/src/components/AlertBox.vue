@@ -1,8 +1,6 @@
 <template>
-    <div class="alert-box">
-        <strong>Error</strong>
-        <br/>
-        <slot />
+    <div class="card">
+        <slot>box-content</slot>
     </div>
 </template>
 

@@ -4,9 +4,9 @@
   import vmodel from './components/vmodel.vue'
   export default{
     components: {
-      vmodel
+      // vmodel
       // props,
-      // AlertBox
+      AlertBox
     },
     data(){
       return{
@@ -28,7 +28,9 @@
 </script>
  
   <template>
- <vmodel v-model="message"/> {{ message }}
+  <AlertBox></AlertBox>
+  <AlertBox> box1</AlertBox>
+  <!-- <vmodel v-model="message"/> {{ message }} -->
 
     <!-- <AlertBox>
       Something bad happened
