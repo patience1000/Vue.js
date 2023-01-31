@@ -1,8 +1,9 @@
 <script setup>
 import { useMouse } from './mouse.js'
 
-const {x, y } = useMouse
+const { x, y } = useMouse()
 </script>
 
 <template>
-<template/>
+  Mouse position is at: {{ x }}, {{ y }}
+</template>
