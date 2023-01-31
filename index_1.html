@@ -78,7 +78,7 @@
 </head>
     <body>
         <div id="app">
-            
+            <login-form></login-form>
             <button @click="toggleBox">Toggle Box</button>
             <div v-if="isVisible" class="box"></div>
         </div>
@@ -100,22 +100,7 @@
 
             app.component('login-form',{
                 template:`
-                <login-form v-for="post in posts" :key="post.id" :title="post.title"/>
-                <h1>{{title}}</h1>
-                <div id="User">
-                    <div class="profile">
-                        <h2>What's your email address?</h2>
-                        <p>Type your email to log in or create a furnito account.</p>
-                    
-                        <input type="email" name="Email" placeholder="Email"  id="email">
-                        <br>
-                        <button class="Con" type="">Continue</button>
-                    
-                        <p id="reg">Log in or register with phone number</p>
-                    
-                        <button class="facebook" type="submit">Log in with Facebook</button>
-                    </div>
-                </div>           
+                <login-form v-for="post in posts" :key="post.id" :title="post.title"></login-form>               
                 `,
                 data() {
                     return{
