@@ -1,7 +1,7 @@
 <script setup>
-import { useMouse } from './mouse.js'
+  import {useMouse} from './mouse.js'
 
-const { x, y } = useMouse()
+  const {x, y} = useMouse
 </script>
 
 <template>
